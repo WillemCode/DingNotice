@@ -1,11 +1,11 @@
 #!/bin/bash
 
+DD_TOKEN=""
+DD_SECRET=""
 CURRENT_TIME=$(date "+%Y-%m-%d %T")
 PROJECT_NAME="ScriptTools"
 PROJECT_HOME="$HOME/.${PROJECT_NAME}"
 DD_TIMESTAMP="${PROJECT_HOME}/timestamp.txt"
-DD_TOKEN=""
-DD_SECRET=""
 
 if [[ "$#" -eq 3 ]]; then
   TITLE=$1
@@ -39,7 +39,7 @@ curl $webhook -H 'Content-Type: application/json' -d "
 {
     'msgtype': 'actionCard',
     'actionCard': {
-        'text': '### $TITLE  \n  #### [ $CURRENT_TIME ]  \n  $MSAGE',
+        'text': '#### **${TITLE}**  \n --- \n  $MSAGE',
         'singleTitle': '点击进行访问🔎',
         'singleURL': 'https://$DOMAIN'
     },
